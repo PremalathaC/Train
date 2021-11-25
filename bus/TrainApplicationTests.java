@@ -46,6 +46,14 @@ public class TrainApplicationTests {
 	}
 
 	@Test
+	public void saveTrainsTest()
+	{
+		List<Train> trains= new LinkedList<>();
+		when(trainRepository.saveAll(trains)).thenReturn(trains);
+		assertEquals(trains,trainservice.saveTrains(trains));
+	}
+	
+	@Test
 	public void deleteTrainTest()
 	{
 		Train train=new Train("SR","Chennai","9.00");
